@@ -9,12 +9,14 @@ use common\components\MainmenuHelper;
 use frontend\assets\VmsAsset;
 use frontend\assets\FontsAsset;
 use frontend\assets\IeAsset;
+use frontend\assets\YaMapsAsset;
 
 
 
 VmsAsset::register($this);
 FontsAsset::register($this);
 IeAsset::register($this);
+YaMapsAsset::register($this);
 
 ?>
 <?php $this->beginPage() ?>
