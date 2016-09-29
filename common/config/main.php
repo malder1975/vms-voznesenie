@@ -7,4 +7,12 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
     ],
+
+    'modules' => [
+
+    'pages' => [
+        'class' => 'bupy7\pages\Module',
+        'tableName' => '{{%your_table_name}}',
+    ],
+],
 ];
