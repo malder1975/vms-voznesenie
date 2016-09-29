@@ -332,6 +332,10 @@ NavBar::end();
 <?= $content; ?>
     <div class="footer">
 
+    
+
+        <div id="yandex_map" style="width: 300px; height: 200px"></div>
+
 
     </div>
 
