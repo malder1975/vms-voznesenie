@@ -12,7 +12,19 @@ return [
 
     'pages' => [
         'class' => 'bupy7\pages\Module',
-        'tableName' => '{{%your_table_name}}',
+        'tableName' => '{{%static_pages}}',
+        'controllerMap' => [
+            'manager' => [
+                'class' => 'bupy7\pages\controllers\ManagerController',
+                'as access' => [
+                    'class' => \yii\filters\AccessControl::className(),
+                    'rules' => [
+                        'allow' => TRUE,
+                        'roles' => ['admin'],
+                    ],
+                ],
+            ],
+        ],
     ],
 ],
 ];
