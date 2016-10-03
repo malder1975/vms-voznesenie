@@ -333,10 +333,37 @@ NavBar::end();
     </nav>-->
 <?= $content; ?>
     <div class="footer">
+<?php
+        $this->registerJs("
+       var geocoder;
+        var map;
+        var marker;
+         var markers = [];
 
+        function initialize(){
 
+              var latlng = new google.maps.LatLng(59.9342802,30.335098600000038);
 
-        <div id="yandex_map" style="width: 300px; height: 200px"></div>
+            var options = {
+                zoom: 10,
+                center: latlng,
+            };
+            map = new google.maps.Map(document.getElementById('map_canvas'), options);
+            geocoder = new google.maps.Geocoder();
+
+        }
+
+          function DeleteMarkers() {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+                }
+                markers = [];
+            }
+
+");
+?>
+
+        <div id="yandex-map" style="width: 300px; height: 200px"></div>
 
 
     </div>
