@@ -10,6 +10,7 @@ use frontend\assets\VmsAsset;
 use frontend\assets\FontsAsset;
 use frontend\assets\IeAsset;
 use frontend\assets\YaMapsAsset;
+use frontend\assets\GoogleMapsAsset;
 
 
 
@@ -17,6 +18,7 @@ VmsAsset::register($this);
 FontsAsset::register($this);
 IeAsset::register($this);
 YaMapsAsset::register($this);
+GoogleMapsAsset::register($this);
 
 ?>
 <?php $this->beginPage() ?>
@@ -332,7 +334,7 @@ NavBar::end();
 <?= $content; ?>
     <div class="footer">
 
-    
+
 
         <div id="yandex_map" style="width: 300px; height: 200px"></div>
 
