@@ -2,7 +2,9 @@
 
 namespace frontend\controllers;
 
-class SPController extends \yii\web\Controller
+use yii\web\Controller;
+
+class SPController extends Controller
 {
     public function actionIndex()
     {
