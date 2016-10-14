@@ -16,9 +16,11 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'layout' => 'vms',
     'defaultRoute' => 'vms',
+    'homeUrl' => '/',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            'baseUrl' => '',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -39,16 +41,24 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'vms/error',
         ],
 
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'page/<page:[\w-]+' => 'sp/index',
+
+                ['class' => 'common\components\staticpages\PagesUrlRule'],
+                ['class' => 'common\components\staticpages\StrictParseRequest'],
+
             ],
         ],
+
+        'assetManager'=>[
+        'class'=>'yii\web\AssetManager',
+        'linkAssets'=>true,
+    ],
 
     ],
     'params' => $params,
