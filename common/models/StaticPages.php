@@ -35,15 +35,18 @@ class StaticPages extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'alias'], 'required'],
-            [['published'], 'integer'],
+            [['published', 'mainmenu_id'], 'integer'],
             [['content'], 'string'],
             [['created_at', 'updated_at'], 'safe'],
-            [['title', 'alias', 'title_browser'], 'string', 'max' => 255],
+            [['title', 'alias', 'route', 'title_browser'], 'string', 'max' => 255],
             [['meta_keywords'], 'string', 'max' => 200],
             [['meta_description'], 'string', 'max' => 160],
             [['alias'], 'unique'],
         ];
     }
 
-    
+    public function getMainmenuItem()
+    {
+        return $this->hasOne(Mainmenu::className(), ['mainmenu_id' => 'id']);
+    }
 }
