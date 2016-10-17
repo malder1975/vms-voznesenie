@@ -76,7 +76,7 @@ $this->title = 'Главная';
                         <div class="item">
                             <div class="col-md-4">
                                  <div class="thumbnail product-img">
-                                       <a href="#"><img class="img-thumbnail center-block img-responsive" src="/images/products/memorials/granite/vertikal/ME-26.jpg"></a>
+                                     <a href="#"><img class="img-thumbnail center-block img-responsive" src="/images/products/memorials/granite/vertikal/ME-26.jpg"></a>
                                 </div>
                             </div>
                         </div>
