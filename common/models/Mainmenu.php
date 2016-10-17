@@ -23,6 +23,10 @@ use yii\db\ActiveRecord;
 class Mainmenu extends ActiveRecord
 {
 
+    const STATUS_ACTIVE = 1;
+
+    const STATUS_DISABLED = 0;
+
     public $data;
     public $tree;
     /**
@@ -46,6 +50,13 @@ class Mainmenu extends ActiveRecord
         ];
     }
 
+    public function relations()
+    {
+        return [
+            'menuItems' => [self::HAS_MANY, 'MenuItem', 'menu_id'],
+        ];
+    }
+
 
     /**
      * @return \yii\db\ActiveQuery
@@ -54,6 +65,8 @@ class Mainmenu extends ActiveRecord
     {
         return $this->hasOne(Menutypes::className(), ['id' => 'menutype_id']);
     }
+
+
 
     private static function getLeftTopMenuItems()
 {
@@ -155,28 +168,7 @@ public static function viewMiddleMenuItems($parentId=0)
 	return $result;
 }
 
-    private static function getTopMenuData()
-    {
-        $items = [];
-        $data = Mainmenu::find()->where(['visible' => 1, 'menutype_id' => 1])->indexBy('id')->all();
 
-        foreach ($data as $item) {
-
-            if(empty ($items[$item->parent_id]))
-            {
-                $items[$item->parent_id] = [];
-
-            }
-            else
-            {
-                $items[$item->parent_id][] = $item->attributes;
-            }
-
-        }
-
-        return $items;
-        //return $menuItems;
-    }
 
 
 
